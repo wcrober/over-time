@@ -33,12 +33,15 @@ app.get('/api/members', async (req,res) => {
 
 app.post('/api/members', (req,res) => {
 
-    let user_name = req.body.user_name
+    let email = req.body.email
+    let password = req.body.password
+    let address = req.body.address
+    let address_two = req.body.address_two
     let city = req.body.city
     let state = req.body.state
-    let street_name = req.body.street_name
+    let zip = req.body.zip
     
-     db.any('INSERT into ot_members(user_name, city, state, street_name) VALUES($1,$2,$3,$4)', [user_name, city, state, street_name])
+     db.any('INSERT into ot_members(email, password, address, address_two, city, state, zip) VALUES($1,$2,$3,$4,$5,$6,$7)', [email, password, address, address_two,  city, state, zip])
     .then((newuser)=> {
         res.json({success:true, message:"Your item has been save"})
     }).catch(error => res.json({success:false, message:"Your item was not saved"}))
