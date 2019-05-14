@@ -8,7 +8,7 @@ class DisplayForSale extends Component {
         super()
         this.state= {
             saleitems: [],
-            for_sale_email: '',
+            forsale_email: '',
             seller_id: '',
             for_sale_item: '',
             for_sale_amount: '',
@@ -37,7 +37,7 @@ class DisplayForSale extends Component {
         let saleitems = this.state.saleitems
         let saleList = saleitems.map((item) => {
             return(
-                <li>User:{item.for_sale_email} Item:{item.for_sale_item} Cost:{item.for_sale_amount} Description:{item.description}</li>
+                <li>User:{item.forsale_email} Item:{item.for_sale_item} Cost:{item.for_sale_amount} Description:{item.description}</li>
             )
         }
         )

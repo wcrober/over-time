@@ -44,7 +44,18 @@ app.get('/api/members', async (req,res) => {
 })
 
 
+app.post('/api/forsale', (req,res) => {
+        let forsale_email = req.body.forsale_email
+        let seller_id = req.body.seller_id
+        let for_sale_item = req.body.for_sale_item
+        let for_sale_amount=  req.body.for_sale_amount
+        let description= req.body.description
 
+        db.any('INSERT INTO ot_forsale (forsale_email, seller_id, for_sale_item, for_sale_amount, description) VALUES($1,$2,$3,$4,$5)', [forsale_email, seller_id, for_sale_item, for_sale_amount, description])
+        .then((newitem) => {
+            res.json({success:true, message:"Your item has been marked for sale"})
+        }).catch(error =>res.json({success:false, message:"There was an error. Please try again!"}))
+})
 
 
 

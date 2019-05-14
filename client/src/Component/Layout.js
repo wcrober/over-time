@@ -17,7 +17,7 @@ class Menu extends Component {
       <Nav.Link href="#link">Trade</Nav.Link>
       <Nav.Link href="#link">Donate</Nav.Link>
        <NavDropdown title="Shop By Sport" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Baseball</NavDropdown.Item>
+        <NavDropdown.Item href="http://localhost:3000/view-saleitems">Baseball</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Football</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Basketball</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Soccer</NavDropdown.Item>
