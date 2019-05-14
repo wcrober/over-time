@@ -23,10 +23,27 @@ db = pgp(connect)
 
 
 
+let sale = [
+    {seller_id: '27', for_sale_item: 'Bat', for_sale_amount: '20.00', description: "A bat for sale" },
+    {seller_id: '30', for_sale_item: 'Glove', for_sale_amount: '50.00', description: "Old glove" }
+]
+
+
+app.get('/api/forsale', async (req,res) => {
+    let saleitems = await db.any('select * from ot_forsale')
+    res.json(saleitems)
+})
+
+
+
+
 app.get('/api/members', async (req,res) => {
     let members =  await db.any('select * from ot_members')
-      res.json(members)
+    console.log(members)  
+    res.json(members)
 })
+
+
 
 
 
@@ -46,6 +63,7 @@ app.post('/api/members', (req,res) => {
         res.json({success:true, message:"Your item has been save"})
     }).catch(error => res.json({success:false, message:"Your item was not saved"}))
 })
+
 
 
 

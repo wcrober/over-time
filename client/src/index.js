@@ -11,6 +11,8 @@ import  Profile  from './Component/Profile'
 import  Home  from './Component/Home'
 import { Layout } from './Component/Layout'
 import  Registration  from './Component/Registration'
+import  Forsale  from './Component/ForSale'
+import DisplayForSale from './Component/DisplayForSale'
 
 const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -19,8 +21,10 @@ ReactDOM.render(
   <Layout>
     <Switch>
         <Route path = "/" exact component = {Home} />
-        <Route path = "/register" exact component = {Registration} />
-        <Route path = "/profile" exact component = {Profile} />
+        <Route path = "/register"  component = {Registration} />
+        <Route path = "/profile"  component = {Profile} />
+        <Route path = "/forsale"  component = {Forsale} />
+        <Route path = "/view-saleitems"  component = {DisplayForSale} />
     </Switch>
   </Layout>
 </BrowserRouter>
