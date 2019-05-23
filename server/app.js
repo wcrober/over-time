@@ -3,10 +3,11 @@ const app = express()
 const pgp = require('pg-promise')()
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const fileUpload = require('express-fileupload')
 
 const PORT = process.env.PORT || 8080
 
-
+app.use(fileUpload());
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -28,10 +29,35 @@ let sale = [
     {seller_id: '30', for_sale_item: 'Glove', for_sale_amount: '50.00', description: "Old glove" }
 ]
 
+app.post('/upload', (req, res, next) => {
+    console.log(req);
+    console.log(req.files)
+    let imageFile = req.files.file;
+  
+    imageFile.mv(`${__dirname}/public/images/${req.body.filename}.jpg`, function(err) {
+      if (err) {
+        return res.status(500).send(err);
+      }
+  
+      res.json({file: `public/${req.body.filename}.jpg`});
+    });
+  
+  })
+
 
 app.get('/api/forsale', async (req,res) => {
     let saleitems = await db.any('select * from ot_forsale')
     res.json(saleitems)
+})
+
+app.delete('/api/delete-product/:id', async (req,res) =>{
+    let product_id= req.params.id
+    console.log('product_id', product_id)
+    let purchased = await ('DELETE from ot_members where product_id = $1', [product_id])
+    console.log(purchased)
+    res.send({type: 'DELETE'})
+    //let product_id = req.body.product_id
+    //console.log('product_id', product_id)
 })
 
 
