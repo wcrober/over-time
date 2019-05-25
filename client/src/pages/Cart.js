@@ -1,18 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
+import Cart from '../features/cart'
 
 
-class Cart extends Component {
-
-    render(){
+export default function CartPage(props) {
         return(
-            <div className= "display-background">
-               
-            <h1>
-                Cart Page
-            </h1>
+            <div>
+                <h1>Cart Page</h1>
+                <Cart />
             </div>
         )
-    }
+  
 }
 
-export default Cart;
+

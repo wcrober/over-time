@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
+
 import Router from './Router'
 
 
 const Navigation = (props) => 
 
 <nav >
-     <ul className="header-color">
+    <ul className="header-color">
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/buy">Buy</NavLink></li>
         <li><NavLink to="/sell">Sell</NavLink></li>
@@ -15,8 +16,7 @@ const Navigation = (props) =>
         <li><NavLink to="/donate">Donate</NavLink></li>
         <li><NavLink to="/Login">Login</NavLink></li>
         <li><NavLink to="/view-profile">Profile</NavLink></li>
-        <li><NavLink to="/join">Join</NavLink></li>
-      
+        <li><NavLink to="/join">Join</NavLink></li> 
     </ul>
 
 </nav>
