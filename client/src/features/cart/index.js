@@ -1,9 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-function sort(items) {
-    return items.sort((a, b) => a.product_id < b.product_id)
-}
+//function sort(items) {
+//    console.log('Sorted Items', items)
+//    return items.sort((a,b) => a.product_id < b.product_id)
+//}
+
+const sort = items => {
+    return items.sort((a, b) => {
+      if (a.product_id !== b.product_id) {
+        return a.product_id - b.product_id;
+      }
+    });
+  };
 
 function Cart(props){
     return<table>
@@ -18,33 +27,33 @@ function Cart(props){
         <tbody>
           {
             sort(props.cart).map(item => <tr>
-                <td>{item.for_sale_item}</td>
-                <td>{item.quantity}</td>
+                <td>{ item.for_sale_item }</td> 
+                <td>{ item.quantity }</td>
                     <td>
                     <button
-                    onClick={(e) => props.addToCart(item)}
+                    onClick={() => props.addToCart(item)}
                     >+</button>
 
                     <button
-                    onClick={(e) => props.removeFromCart(item)}
+                    onClick={() => props.removeFromCart(item)}
                     >-</button>
                 </td>
                 <td>
                     <button
-                     onClick={(e) => props.removeAllFromCart(item)}
-                    >Remove all from cart</button>
+                     onClick={() => props.removeAllFromCart(item)}
+                    >
+                      Remove all from cart
+                    </button>
                 </td>
             </tr>)
-
           }
-
         </tbody>
     </table>
 }
 
 function mapStateToProps(state){
     return{
-    cart: state.cart
+    cart: state.cart,
     }
 }
 

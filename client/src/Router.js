@@ -9,6 +9,8 @@ import Sell from './pages/Sell'
 import Login from './pages/Login'
 import Donate from './pages/Donate'
 import Cart from './pages/Cart'
+import CheckoutPage from './pages/checkoutpage'
+import OrdersPage from './pages/orderspage';
 
 const Router = () => (
     <Switch>
@@ -20,6 +22,8 @@ const Router = () => (
         <Route path = "/login" component = { Login } />
         <Route path = "/donate" component = { Donate } />
         <Route path = "/cart" component = { Cart } />
+        <Route path = "/checkout" component = { CheckoutPage } />
+        <Route path = "/orders/:id" component = { OrdersPage } />
     </Switch>
 
 )
