@@ -1,25 +1,52 @@
-import ProductListing from '../features/product-listing'
-import React, { Component } from 'react';
+import React from 'react'
 
 
 
 
-class Homepage extends Component {
+export default function Homepage(props) {
+    return( 
+    <div className="display-background" style={{width: '100%', margin: 'auto'}}>
+        <h1 className="header-text">Home Page</h1>
+           <div>
+           <div className= "display-background" style={{width: '100%', margin: 'auto'}}>
+           
+           <img
+                src="https://images.pexels.com/photos/209832/pexels-photo-209832.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt="playing baseball"
+                className="playingbaseball-img"
+           />
+           <div className="banner-text">
+           <h1>Extra Innings Baseball Gear</h1>
+           <hr/>
+           <p> Bats | Helmets | Baseballs | Gloves | Batting Gloves | Training | Apparel </p>
 
-    
-    render(){         
-            return( 
-                <div>
-                  <h1>homepage</h1>
-                  <ProductListing />              
-                </div>  
-            )
-        } 
-        
-    }
+           <div className="sports-links">
+           {/* Baseballs */}
+           <a href="http://google.com" rel="noopener noreferrer" target="_blank">
+           <i className="fa fa-linkedin-square"  aria-hidden="true" />  
+           </a>
 
-    
+           {/* baseball */}
+           <a href="http://google.com" rel="noopener noreferrer" target="_blank">
+           <i  class="fa fa-baseball-ball" aria-hidden="true" />
+           </a>
 
-    
+           {/* Football */}
+           <a href="http://google.com" rel="noopener noreferrer" target="_blank">
+           <i className="fas fa-football-ball"  aria-hidden="true" />
+           </a>
 
-export default Homepage
+            {/* YouTube */}
+            <a href="http://google.com" rel="noopener noreferrer" target="_blank">
+           <i className="fa fa-youtube-square"  aria-hidden="true" />
+           </a>
+           </div>
+
+           </div>
+           
+
+           </div>
+           </div>
+    </div>
+    )
+}
